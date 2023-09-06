@@ -1,0 +1,8 @@
+.vertical-dotted-line {
+    border-left: 10px solid #040101;
+    /* Adjust size and color as needed */
+    height: 100%;
+    /* Make sure the line extends the full height */
+    margin: 1 10px;
+    /* Add margin for spacing */
+}

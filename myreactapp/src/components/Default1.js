@@ -22,9 +22,11 @@ function Default1() {
         helper.send();
     }
     
+
     useEffect(() => {
         GetLatestData();
-    },[])
+    }, [])
+    
   return (<>
                
                 <hr></hr>
@@ -32,7 +34,7 @@ function Default1() {
                         {message}
                 </center>
                 <hr></hr>
-                <div className="table-responsive"   style={{ width: "75%", textAlign : "center" }}>
+                <div className="table-responsive"   style={{ width: "50%" }}>
                     <table className="table table-bordered">
                     <tbody>
                             {emps.map(emp=>{
