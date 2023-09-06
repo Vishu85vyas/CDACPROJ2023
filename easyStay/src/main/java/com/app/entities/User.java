@@ -1,5 +1,6 @@
 package com.app.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -26,9 +27,8 @@ public class User extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private ROLE role;
 
-	@ManyToOne
-	@JoinColumn(name = "hotel_id")
-	private Hotel myHotel;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "users", orphanRemoval = true)
+	private List<Hotel> hotels = new ArrayList<>();
     
 	@OneToOne(cascade = CascadeType.ALL , mappedBy = "us")
 	private BookingTbl bk;

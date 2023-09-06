@@ -30,17 +30,13 @@ public class Room extends BaseEntity {
 
 	@Enumerated(EnumType.STRING)
 	private RoomType type;
-//	id : int ----- PK
-//	hotel_id  : int ---FK
-//	booking_id : int ---- FK
-//	room : varchar
-//	status:int (0,1)
-
+	@Column(length = 30)
+    private String city;
+    @Column(nullable = false ,length = 10)
+    private int price;
 	@ManyToOne
 	@JoinColumn(name = "hotel_id")
 	private Hotel myHotel;
-
-    
 	@OneToOne(cascade = CascadeType.ALL,mappedBy = "rm")
 	private BookingTbl  booking;
 }

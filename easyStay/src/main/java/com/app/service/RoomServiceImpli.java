@@ -1,5 +1,6 @@
 package com.app.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,7 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.dao.RoomDao;
+import com.app.dao.UserDao;
+import com.app.dto.EditPassDTO;
+import com.app.dto.RoomDTO;
+import com.app.dto.SignupResponse;
 import com.app.entities.Room;
+import com.app.entities.User;
 
 @Service
 @Transactional
@@ -48,5 +54,15 @@ public class RoomServiceImpli implements RoomService{
 		r.deleteById(id);
 		return "Deleted!";
 	}
-
+	public List<RoomDTO> getAvailableRooms(String city)
+	{
+		System.out.println(city);
+		List<Room> rooms = r.findByCity(city);
+		List<RoomDTO> roomDTOs = new ArrayList<>();
+		for (Room room : rooms) {
+		    RoomDTO roomDTO = new RoomDTO(room.getId(),room.getStatus(),room.getType(),room.getPrice());
+		    roomDTOs.add(roomDTO);
+		}
+		return roomDTOs;
+	}
 }

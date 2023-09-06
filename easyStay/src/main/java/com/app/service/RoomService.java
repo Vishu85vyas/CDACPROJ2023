@@ -2,6 +2,8 @@ package com.app.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.app.dto.RoomDTO;
 import com.app.entities.Room;
 
 public interface RoomService {
@@ -15,4 +17,6 @@ public interface RoomService {
 	public Optional<Room> getRoom(Long id);
 	
 	String deleteRoomDetails(Long id);
+	
+	public List<RoomDTO> getAvailableRooms(String city);	
 }
